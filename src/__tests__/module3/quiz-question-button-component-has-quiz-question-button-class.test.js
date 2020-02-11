@@ -11,9 +11,9 @@ describe('QuizQuestionButton.js Component', () => {
   it('has a QuizQuestionButton.js class that extends Component @quiz-question-button-component-has-quiz-question-button-class', () => {
     let file;
     try {
-      file = fs.readFileSync(__dirname + '/../../QuizQuestionButton.js.js').toString();
+      file = fs.readFileSync(__dirname + '/../../QuizQuestionButton.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestionButton.js.js file hasn't been created yet.")
+      assert(false, "The QuizQuestionButton.js file hasn't been created yet.")
     }
 
     let ast = babylon.parse(file, { sourceType: "module", plugins: ["jsx"] })
@@ -40,13 +40,13 @@ describe('QuizQuestionButton.js Component', () => {
   it('exports the QuizQuestionButton.js class as default @quiz-question-button-component-has-quiz-question-button-class', () => {
     let file;
     try {
-      file = fs.readFileSync(__dirname + '/../../QuizQuestionButton.js.js').toString();
+      file = fs.readFileSync(__dirname + '/../../QuizQuestionButton').toString();
     } catch (e) {
-      assert(false, "The QuizQuestionButton.js.js file hasn't been created yet.")
+      assert(false, "The QuizQuestionButton.js file hasn't been created yet.")
     }
 
-    let re = /\nexport default QuizQuestionButton.js\;*\s*$/g
+    let re = /\nexport default QuizQuestionButton\;*\s*$/g
     let match = file.match(re)
-    assert(match != null && match.length > 0, "We couldn't find `export default QuizQuestionButton.js` at the end of your QuizQuestionButton.js.js file.")
+    assert(match != null && match.length > 0, "We couldn't find `export default QuizQuestionButton.js` at the end of your QuizQuestionButton.js file.")
   })
 })

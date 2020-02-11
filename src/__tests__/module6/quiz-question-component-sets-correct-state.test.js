@@ -26,7 +26,7 @@ try {
 let quizQuestionButtonComponentExists = false;
 let QuizQuestionButton;
 try {
-  QuizQuestionButton = require('../../QuizQuestionButton.js.js').default;
+  QuizQuestionButton = require('../../QuizQuestionButton.js').QuizQuestionButton;
   quizQuestionButtonComponentExists = true;
 } catch (e) {
   quizQuestionButtonComponentExists = false;
