@@ -8,7 +8,7 @@ let fs = require('fs');
 let babylon = require('babylon')
 
 describe('QuizQuestion Component', () => {
-  it('imports QuizQuestionButton from QuizQuestionButton.js @quiz-question-component-imports-quiz-question-button-component', () => {
+  it('imports QuizQuestionButton.js from QuizQuestionButton.js.js @quiz-question-component-imports-quiz-question-button-component', () => {
 
     let quizQuestionFile;
     try {
@@ -19,9 +19,9 @@ describe('QuizQuestion Component', () => {
 
     let quizQuestionButtonFile;
     try {
-      quizQuestionButtonFile = fs.readFileSync(__dirname + '/../../QuizQuestionButton.js').toString();
+      quizQuestionButtonFile = fs.readFileSync(__dirname + '/../../QuizQuestionButton.js.js').toString();
     } catch (e) {
-      assert(false, "The QuizQuestionButton.js file hasn't been created yet.")
+      assert(false, "The QuizQuestionButton.js.js file hasn't been created yet.")
     }
 
     let ast = babylon.parse(quizQuestionFile, { sourceType: "module", plugins: ["jsx"] })
@@ -30,12 +30,12 @@ describe('QuizQuestion Component', () => {
 
     ast['program']['body'].forEach(element => {
       if (element.type == 'ImportDeclaration') {
-        if (element.source.value == './QuizQuestionButton.js' || element.source.value == './QuizQuestionButton' || element.source.value == 'QuizQuestionButton') {
-          assert(element.specifiers[0].local.name == 'QuizQuestionButton', "You're not importing the QuizQuestionButton class from the QuizQuestionButton.js file.")
+        if (element.source.value == './QuizQuestionButton.js.js' || element.source.value == './QuizQuestionButton.js' || element.source.value == 'QuizQuestionButton') {
+          assert(element.specifiers[0].local.name == 'QuizQuestionButton', "You're not importing the QuizQuestionButton.js class from the QuizQuestionButton.js.js file.")
           quiz_question_button_import_found = true
         }
       }
     })
-    assert(quiz_question_button_import_found, "You're not importing the QuizQuestionButton.js file.")
+    assert(quiz_question_button_import_found, "You're not importing the QuizQuestionButton.js.js file.")
   });
 })

@@ -33,7 +33,7 @@ describe('QuizQuestion Component', () => {
     }
 
     let nodes = quizQuestion.find('QuizQuestionButton')
-    assert(nodes.length == mock_prop.answer_options.length, "We're not seeing enough QuizQuestionButton components being rendered.  The number should match the amount of answer options for each question.")
+    assert(nodes.length == mock_prop.answer_options.length, "We're not seeing enough QuizQuestionButton.js components being rendered.  The number should match the amount of answer options for each question.")
 
     let file;
     try {

@@ -34,7 +34,7 @@ describe('QuizEnd Component', () => {
     })
 
     assert(class_declaration_count > 0, "We couldn't find any class declarations.")
-    assert(class_declaration_count == 1, "We found more than one class declaration, but there's only supposed to be one class named QuizQuestionButton.")
+    assert(class_declaration_count == 1, "We found more than one class declaration, but there's only supposed to be one class named QuizQuestionButton.js.")
   })
 
   it('exports the QuizEnd class as default @quiz-end-component-has-quiz-end-class', () => {

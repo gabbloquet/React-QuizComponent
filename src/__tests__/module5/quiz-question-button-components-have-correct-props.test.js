@@ -16,7 +16,7 @@ try {
 let quizQuestionButtonComponentExists = false;
 let QuizQuestionButton;
 try {
-  QuizQuestionButton = require('../../QuizQuestionButton.js').default;
+  QuizQuestionButton = require('../../QuizQuestionButton.js.js').default;
   quizQuestionButtonComponentExists = true;
 } catch (e) {
   quizQuestionButtonComponentExists = false;
@@ -26,9 +26,9 @@ let fs = require('fs');
 let quizData = require('../../quiz_data.json')
 
 describe('QuizQuestion Component', () => {
-  it('has QuizQuestionButton components with correct props @quiz-question-button-components-have-correct-props', () => {
+  it('has QuizQuestionButton.js components with correct props @quiz-question-button-components-have-correct-props', () => {
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
+    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton.js component hasn't been created yet.")
 
     let quizQuestion;
 
@@ -53,7 +53,7 @@ describe('QuizQuestion Component', () => {
     }
 
     if (quizQuestion.find('QuizQuestionButton').length == 1) {
-      assert(false, "The QuizQuestion component isn't displaying multiple QuizQuestionButton components.")
+      assert(false, "The QuizQuestion component isn't displaying multiple QuizQuestionButton.js components.")
       // this shouldn't run after @quiz-question-component-maps-multiple-button-components
     } else if (quizQuestion.find('QuizQuestionButton').length > 1) {
       // this will run after @quiz-question-component-maps-multiple-button-components
@@ -61,11 +61,11 @@ describe('QuizQuestion Component', () => {
         let expectedProps = {
           button_text: quizData.quiz_questions[0].answer_options[index]
         }
-        assert(n.key() == index, "It doesn't look like the QuizQuestionButton component's `key` props have the correct values.")
-        assert(JSON.stringify(n.props()) == JSON.stringify(expectedProps), "It doesn't look like the QuizQuestionButton component's `button_text` props have the correct values.")
+        assert(n.key() == index, "It doesn't look like the QuizQuestionButton.js component's `key` props have the correct values.")
+        assert(JSON.stringify(n.props()) == JSON.stringify(expectedProps), "It doesn't look like the QuizQuestionButton.js component's `button_text` props have the correct values.")
       })
     } else {
-      assert(false, "Your QuizQuestion component isn't rendering any QuizQuestionButton components.")
+      assert(false, "Your QuizQuestion component isn't rendering any QuizQuestionButton.js components.")
     }
 
   })

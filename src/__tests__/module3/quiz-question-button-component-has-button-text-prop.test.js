@@ -16,7 +16,7 @@ try {
 let quizQuestionButtonComponentExists = false;
 let QuizQuestionButton;
 try {
-  QuizQuestionButton = require('../../QuizQuestionButton.js').default;
+  QuizQuestionButton = require('../../QuizQuestionButton.js.js').default;
   quizQuestionButtonComponentExists = true;
 } catch (e) {
   quizQuestionButtonComponentExists = false;
@@ -25,9 +25,9 @@ try {
 let fs = require('fs');
 
 describe('QuizQuestion Component', () => {
-  it('has QuizQuestionButton component with correct prop @quiz-question-button-component-has-button-text-prop', () => {
+  it('has QuizQuestionButton.js component with correct prop @quiz-question-button-component-has-button-text-prop', () => {
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
+    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton.js component hasn't been created yet.")
 
     let quizQuestion;
 
@@ -46,11 +46,11 @@ describe('QuizQuestion Component', () => {
       button_text: '5'
     }
     if (quizQuestion.find('QuizQuestionButton').length == 1) {
-      assert(JSON.stringify(quizQuestion.find('QuizQuestionButton').props()) == JSON.stringify(expectedProps), "You're not passing the correct prop values to QuizQuestionButton.")
+      assert(JSON.stringify(quizQuestion.find('QuizQuestionButton').props()) == JSON.stringify(expectedProps), "You're not passing the correct prop values to QuizQuestionButton.js.")
     } else if (quizQuestion.find('QuizQuestionButton').length == 4) {
       
     } else {
-      assert(false, "We don't see the QuizQuestionButton element in the QuizQuestion component's JSX.")
+      assert(false, "We don't see the QuizQuestionButton.js element in the QuizQuestion component's JSX.")
     }
 
   })

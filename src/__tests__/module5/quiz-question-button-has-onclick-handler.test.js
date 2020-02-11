@@ -8,21 +8,21 @@ import sinon from 'sinon';
 let quizQuestionButtonComponentExists = false;
 let QuizQuestionButton;
 try {
-  QuizQuestionButton = require('../../QuizQuestionButton.js').default;
+  QuizQuestionButton = require('../../QuizQuestionButton.js.js').default;
   quizQuestionButtonComponentExists = true;
 } catch (e) {
   quizQuestionButtonComponentExists = false;
 }
 
-describe('QuizQuestionButton Component', () => {
+describe('QuizQuestionButton.js Component', () => {
   it('has a button with an onClick handler @quiz-question-button-has-onclick-handler', () => {
-    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
+    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton.js component hasn't been created yet.")
 
     let spy
     try {
       spy = sinon.spy(QuizQuestionButton.prototype, 'handleClick')
     } catch (e) {
-      assert(false, "There's not a method named `handleClick()` that's being called on button click in the QuizQuestionButton class.")
+      assert(false, "There's not a method named `handleClick()` that's being called on button click in the QuizQuestionButton.js class.")
     }
 
     let mockedPropHandler = sinon.spy()
@@ -31,11 +31,11 @@ describe('QuizQuestionButton Component', () => {
     try {
       quizQuestionButton = shallow(<QuizQuestionButton button_text='5' clickHandler={mockedPropHandler} />)
     } catch (e) {
-      assert(false, "We weren't able to mount the QuizQuestionButton component.")
+      assert(false, "We weren't able to mount the QuizQuestionButton.js component.")
     }
 
     quizQuestionButton.find('button').simulate('click')
-    assert(spy.calledOnce, "There's not a method named `handleClick()` that's being called on button click in the QuizQuestionButton class.")
+    assert(spy.calledOnce, "There's not a method named `handleClick()` that's being called on button click in the QuizQuestionButton.js class.")
 
   })
 })

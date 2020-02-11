@@ -16,7 +16,7 @@ try {
 let quizQuestionButtonComponentExists = false;
 let QuizQuestionButton;
 try {
-  QuizQuestionButton = require('../../QuizQuestionButton.js').default;
+  QuizQuestionButton = require('../../QuizQuestionButton.js.js').default;
   quizQuestionButtonComponentExists = true;
 } catch (e) {
   quizQuestionButtonComponentExists = false;
@@ -25,9 +25,9 @@ try {
 let fs = require('fs');
 
 describe('QuizQuestion Component', () => {
-  it('renders QuizQuestionButton component @quiz-question-component-displays-quiz-question-button-component', () => {
+  it('renders QuizQuestionButton.js component @quiz-question-component-displays-quiz-question-button-component', () => {
     assert(quizQuestionComponentExists, "The QuizQuestion component hasn't been created yet.")
-    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton component hasn't been created yet.")
+    assert(quizQuestionButtonComponentExists, "The QuizQuestionButton.js component hasn't been created yet.")
 
     let quizQuestion;
 
@@ -47,6 +47,6 @@ describe('QuizQuestion Component', () => {
 
     assert(div.querySelector('main') != null, "We can't find a `main` tag in the QuizQuestion component's JSX.")
     let ul_contents = div.querySelectorAll('main section ul')[0]
-    assert(ul_contents.querySelector('li button') != null, "You're not rendering the correct HTML tags from the QuizQuestionButton component in the QuizQuestion's render method.")
+    assert(ul_contents.querySelector('li button') != null, "You're not rendering the correct HTML tags from the QuizQuestionButton.js component in the QuizQuestion's render method.")
   })
 })
